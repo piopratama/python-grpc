@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package streaming;
+
+// Define the gRPC service
+service StreamingService {
+  // Server streaming RPC
+  rpc StreamData (StreamRequest) returns (stream StreamResponse);
+}
+
+// Request message from client
+message StreamRequest {
+  string user_id = 1; // User identifier
+}
+
+// Response message from server
+message StreamResponse {
+  string message = 1; // Response message
+}
